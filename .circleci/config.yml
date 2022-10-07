@@ -1,5 +1,9 @@
 version: 2.1
 
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.3
+  coveralls: coveralls/coveralls@1.0.4
+
 jobs:
   build:
     docker:
@@ -36,10 +40,6 @@ jobs:
           prefix: coverage
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results
-
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.3
-  coveralls: coveralls/coveralls@1.0.4
 
 workflows:
   main:
