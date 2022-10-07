@@ -11,6 +11,15 @@ jobs:
       #    name: Install dependencies and build project
       #    command: npm install
       - sonarcloud/scan
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run: # run tests
           name: test
           command: npm run test
