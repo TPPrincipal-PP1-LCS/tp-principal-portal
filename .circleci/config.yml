@@ -15,14 +15,14 @@ jobs:
       - run: npm i coveralls
       - sonarcloud/scan
       - restore_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: install-npm-dependencies
           command: npm install
       - save_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
-        paths:
-          - ./node_modules
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run: # run tests
           name: test
           command: npm run test:unit
