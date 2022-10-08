@@ -28,7 +28,7 @@ jobs:
           command: npm run test:unit
       - run: # run code coverage report
           name: code-coverage
-          command: npm run coverage
+          command: npm run coveralls
       - run: # run build
           name: Build
           command: npm run build
